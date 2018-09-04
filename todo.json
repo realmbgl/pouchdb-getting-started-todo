@@ -1,0 +1,21 @@
+{
+  "id": "todo",
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "realmbgl/pdbtd",
+      "forcePullImage": true
+    }
+  },
+  "portDefinitions": [
+     {
+      "name": "api",
+      "port": 8000,
+      "protocol": "tcp",
+      "labels": {
+        "VIP_0": "todo:8000"
+      }
+     }
+  ],
+  "cmd": "python -m http.server $PORT0"
+}
